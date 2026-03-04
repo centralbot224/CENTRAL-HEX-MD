@@ -1,5 +1,5 @@
 /**
- * Knight Bot - A WhatsApp Bot
+ * central Bot - A WhatsApp Bot
  * Autoread Command - Automatically read all messages
  */
 
