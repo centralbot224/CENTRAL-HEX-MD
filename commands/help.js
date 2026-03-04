@@ -4,7 +4,7 @@ const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
     const helpMessage = `
-╭━━━━〔 *${settings.botName || '𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗'}* 〕━━━━╮
+╭━━━━〔 *${settings.botName || '𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-𝐌𝐃'}* 〕━━━━╮
 ┃ 🛠️ Version: *${settings.version || '3.0.0'}*
 ┃ 👤 Owner: *${settings.botOwner || '𝐈𝐁𝐒𝐀𝐂𝐊𝐎🥷'}*
 ┃ 📺 YT: ${global.ytch}
@@ -22,7 +22,7 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .menu → afficher le menu
 │ ⬡ .ping → vitesse du bot
 │ ⬡ .alive → état du bot
-│ ⬡ .tts <text> → texte en audio
+│ ⬡ .tts → texte en audio
 │ ⬡ .owner → propriétaire
 │ ⬡ .joke → blague
 │ ⬡ .quote → citation
@@ -154,7 +154,7 @@ async function helpCommand(sock, chatId, message) {
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
             newsletterJid: '120363317041132843@newsletter',
-            newsletterName: 'CENTRAL-HEX',
+            newsletterName: 'CENTRAL-HEX-MD',
             serverMessageId: -1
         }
     };
