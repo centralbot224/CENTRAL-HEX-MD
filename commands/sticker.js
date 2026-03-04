@@ -37,7 +37,7 @@ async function stickerCommand(sock, chatId, message) {
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363317041132843@newsletter',
-                    newsletterName: 'CENTRAL-HEX',
+                    newsletterName: 'CENTRAL-HEX-MD',
                     serverMessageId: -1
                 }
             }
@@ -59,7 +59,7 @@ async function stickerCommand(sock, chatId, message) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363317041132843@newsletter',
-                        newsletterName: 'CENTRAL-HEX',
+                        newsletterName: 'CENTRAL-HEX-MD',
                         serverMessageId: -1
                     }
                 }
@@ -217,7 +217,7 @@ async function stickerCommand(sock, chatId, message) {
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363317041132843@newsletter',
-                    newsletterName: 'CENTRAL-HEX',
+                    newsletterName: 'CENTRAL-HEX-MD',
                     serverMessageId: -1
                 }
             }
