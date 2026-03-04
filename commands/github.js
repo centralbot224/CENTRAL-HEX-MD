@@ -6,11 +6,11 @@ const path = require('path');
 
 async function githubCommand(sock, chatId, message) {
   try {
-    const res = await fetch('https://github.com/ibsacko59/CENTRAL-HEX');
+    const res = await fetch('https://github.com/centralbot224/CENTRAL-HEX-MD');
     if (!res.ok) throw new Error('Error fetching repository data');
     const json = await res.json();
 
-    let txt = `*☆  LASER-MD  ☆*\n\n`;
+    let txt = `*☆  CENTRAL-HEX-MD ☆*\n\n`;
     txt += `✩  *Name* : ${json.name}\n`;
     txt += `✩  *Watchers* : ${json.watchers_count}\n`;
     txt += `✩  *Size* : ${(json.size / 1024).toFixed(2)} MB\n`;
