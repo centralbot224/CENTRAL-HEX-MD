@@ -12,6 +12,8 @@ async function helpCommand(sock, chatId, message) {
 
 *COMMAND LIST:*
 
+𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-🥷🇬🇳🥷
+
 🤖─────────────────🤖
 🥷𝐈𝐁𝐑𝐀𝐇𝐈𝐌𝐀 𝐒𝐎𝐑𝐘 𝐒𝐀𝐂𝐊𝐎🥷
 🤖─────────────────🤖
