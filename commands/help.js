@@ -174,3 +174,4 @@ async function helpCommand(sock, chatId, message) {
     await sock.sendMessage(chatId, { text: helpMessage
     });
     }
+    module.exports = helpCommand;
