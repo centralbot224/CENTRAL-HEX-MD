@@ -3,7 +3,7 @@ const settings = {
   author: '𝙸𝙱𝚁𝙰𝙷𝙸𝙼𝙰 𝚂𝙾𝚁𝚈 𝚂𝙰𝙲𝙺𝙾',
   botName: "𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫-𝗠𝗗",
   botOwner: '𝙸𝙱𝚂𝙰𝙲𝙺𝙾', // Your name
-  ownerNumber: 224621963059', //Set your number here without + symbol, just add country code & number without any space
+  ownerNumber: '224621963059', //Set your number here without + symbol, just add country code & number without any space
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
   maxStoreMessages: 20, 
