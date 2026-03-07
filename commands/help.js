@@ -149,8 +149,6 @@ async function helpCommand(sock, chatId, message) {
 
 *Join our channel for updates:*`;
 
-    try {
-
     const contextInfo = {
         forwardingScore: 1,
         isForwarded: true,
@@ -161,17 +159,20 @@ async function helpCommand(sock, chatId, message) {
         }
     };
 
-    await sock.sendMessage(chatId, {
-        image: { 
-            url: 'https://i.ibb.co/RpG5TFyG/IMG-20260228-WA0167.jpg'
-        },
-        caption: helpMessage,
-        contextInfo
-    }, { quoted: message });
-
-} catch (error) {
-    console.error('Error in help command:', error);
-    await sock.sendMessage(chatId, { text: helpMessage
-    });
+    try {
+        await sock.sendMessage(chatId, {
+            image: { 
+                url: 'https://i.ibb.co/RpG5TFyG/IMG-20260228-WA0167.jpg'
+            },
+            caption: helpMessage,
+            contextInfo
+        }, { quoted: message });
+    } catch (error) {
+        console.error('Error in help command:', error);
+        await sock.sendMessage(chatId, { 
+            text: helpMessage 
+        });
     }
-    module.exports = helpCommand;
+}
+
+module.exports = helpCommand;
