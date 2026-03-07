@@ -36,7 +36,7 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .8ball → boule magique
 │ ⬡ .groupinfo → infos groupe
 │ ⬡ .staff → staff du groupe
-│ ⬡ .vv → voir vue unique
+│ ⬡ .vv → coup d'œil 
 │ ⬡ .trt → traduction
 │ ⬡ .ss → capture écran
 │ ⬡ .jid → identifiant chat
@@ -171,5 +171,6 @@ async function helpCommand(sock, chatId, message) {
 
 } catch (error) {
     console.error('Error in help command:', error);
-    await sock.sendMessage(chatId, { text: helpMessage });
+    await sock.sendMessage(chatId, { text: helpMessage
+    });
     }
