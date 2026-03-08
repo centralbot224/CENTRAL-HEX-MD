@@ -70,12 +70,14 @@ setInterval(() => {
     }
 }, 30_000) // check every 30 seconds
 
-let phoneNumber = "224621963059"
+let phoneNumber = "224621963059" // Ton numéro sans + ni espaces
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 
 global.botname = "CENTRAL-HEX-MD"
 global.themeemoji = "•"
-const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
+// FORCER LE MODE CODE DE PAIRAGE (pas de QR code)
+const pairingCode = true
+// const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
 const useMobile = process.argv.includes("--mobile")
 
 // Only create readline interface if we're in an interactive environment
@@ -98,7 +100,7 @@ async function startXeonBotInc() {
         const XeonBotInc = makeWASocket({
             version,
             logger: pino({ level: 'silent' }),
-            printQRInTerminal: !pairingCode,
+            printQRInTerminal: false, // Désactivé car on utilise le code de pairage
             browser: ["Ubuntu", "Chrome", "20.0.04"],
             auth: {
                 creds: state.creds,
@@ -208,33 +210,34 @@ async function startXeonBotInc() {
 
         XeonBotInc.serializeM = (m) => smsg(XeonBotInc, m, store)
 
-        // Handle pairing code
+        // Handle pairing code - VERSION CORRIGÉE
         if (pairingCode && !XeonBotInc.authState.creds.registered) {
             if (useMobile) throw new Error('Cannot use pairing code with mobile api')
 
-            let phoneNumber
+            let phoneNumberInput
             if (!!global.phoneNumber) {
-                phoneNumber = global.phoneNumber
+                phoneNumberInput = global.phoneNumber
             } else {
-                phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFormat: your number (without + or spaces) : `)))
+                phoneNumberInput = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFormat: your number (without + or spaces) : `)))
             }
 
             // Clean the phone number - remove any non-digit characters
-            phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
+            phoneNumberInput = phoneNumberInput.replace(/[^0-9]/g, '')
 
             // Validate the phone number using awesome-phonenumber
             const pn = require('awesome-phonenumber');
-            if (!pn('+' + phoneNumber).isValid()) {
+            if (!pn('+' + phoneNumberInput).isValid()) {
                 console.log(chalk.red('Invalid phone number. Please enter your full international number (e.g., 15551234567 for US, 447911123456 for UK, etc.) without + or spaces.'));
                 process.exit(1);
             }
 
             setTimeout(async () => {
                 try {
-                    let code = await XeonBotInc.requestPairingCode(phoneNumber)
+                    let code = await XeonBotInc.requestPairingCode(phoneNumberInput)
                     code = code?.match(/.{1,4}/g)?.join("-") || code
                     console.log(chalk.black(chalk.bgGreen(`Your Pairing Code : `)), chalk.black(chalk.white(code)))
                     console.log(chalk.yellow(`\nPlease enter this code in your WhatsApp app:\n1. Open WhatsApp\n2. Go to Settings > Linked Devices\n3. Tap "Link a Device"\n4. Enter the code shown above`))
+                    console.log(chalk.cyan(`\n⚠️ IMPORTANT: Select "Link with phone number" not QR code!`))
                 } catch (error) {
                     console.error('Error requesting pairing code:', error)
                     console.log(chalk.red('Failed to get pairing code. Please check your phone number and try again.'))
@@ -246,9 +249,10 @@ async function startXeonBotInc() {
         XeonBotInc.ev.on('connection.update', async (s) => {
             const { connection, lastDisconnect, qr } = s
             
-            if (qr) {
-                console.log(chalk.yellow('📱 QR Code generated. Please scan with WhatsApp.'))
-            }
+            // NE PAS AFFICHER LE MESSAGE DE QR CODE
+            // if (qr) {
+            //     console.log(chalk.yellow('📱 QR Code generated. Please scan with WhatsApp.'))
+            // }
             
             if (connection === 'connecting') {
                 console.log(chalk.yellow('🔄 Connecting to WhatsApp...'))
