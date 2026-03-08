@@ -1203,16 +1203,19 @@ async function handleMessages(sock, messageUpdate, printLog) {
             await addCommandReaction(sock, message);
         }
     } catch (error) {
-        console.error('❌ Error in message handler:', error.message);
-        // Only try to send error message if we have a valid chatId
-        if (chatId) {
-            await sock.sendMessage(chatId, {
-                text: '❌ Failed to process command!',
-                ...channelInfo
-            });
-        }
+    console.error('X Error in message handler:', error.message);
+    
+    // Récupérer chatId depuis message si disponible
+    const errorChatId = message?.key?.remoteJid;
+    
+    // Only try to send error message if we have a valid chatId
+    if (errorChatId) {
+        await sock.sendMessage(errorChatId, {
+            text: '❌ Failed to process command!\n' + error.message.substring(0, 100),
+            ...channelInfo
+        }).catch(e => console.error('Failed to send error message:', e));
     }
-}
+    }
 
 async function handleGroupParticipantUpdate(sock, update) {
     try {
