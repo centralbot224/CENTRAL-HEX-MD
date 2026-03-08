@@ -4,21 +4,21 @@ const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
     const helpMessage = `
-╭━━━━〔 *${settings.botName || '𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-𝐌𝐃'}* 〕━━━━╮
+╭━━━〔 *${settings.botName || '𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-𝐌𝐃'}* 〕━━━╮
 ┃ 🛠️ Version: *${settings.version || '3.0.0'}*
 ┃ 👤 Owner: *${settings.botOwner || '𝐈𝐁𝐒𝐀𝐂𝐊𝐎🥷'}*
 ┃ 📺 YT: ${global.ytch}
-╰━━━━━━━━━━━━━━━━━━━━━━━╯
+╰━━━━━━━━━━━━━━━━━━━━━╯
 
-*COMMAND LIST:*
+   *COMMAND LIST:*
 
-𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-🥷🇬🇳🥷
+  𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-🥷🇬🇳🥷
 
-🤖─────────────────🤖
+🤖───────────────🤖
 🥷𝐈𝐁𝐑𝐀𝐇𝐈𝐌𝐀 𝐒𝐎𝐑𝐘 𝐒𝐀𝐂𝐊𝐎🥷
-🤖─────────────────🤖
+🤖───────────────🤖
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗚𝗘𝗡𝗘𝗥𝗔𝗟-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .help → aide du bot
 │ ⬡ .menu → afficher le menu
@@ -41,9 +41,9 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .ss → capture écran
 │ ⬡ .jid → identifiant chat
 │ ⬡ .url → lien raccourci
-╰──────────────────🥷
+╰────────────────🥷
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗔𝗗𝗠𝗜𝗡-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .ban → bannir membre
 │ ⬡ .kick → expulser membre
@@ -62,9 +62,9 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .goodbye → message au revoir
 │ ⬡ .setgname → changer nom groupe
 │ ⬡ .setgpp → photo du groupe
-╰──────────────────🥷
+╰────────────────🥷
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗢𝗪𝗡𝗘𝗥-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .mode → public / privé
 │ ⬡ .clearsession → supprimer session
@@ -77,9 +77,9 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .pmblocker → bloquer mp
 │ ⬡ .setpp → photo profil bot
 │ ⬡ .setmention → mention auto
-╰──────────────────🥷
+╰────────────────🥷
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗘𝗗𝗜𝗧𝗜𝗡𝗚-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .sticker → créer sticker
 │ ⬡ .simage → sticker image
@@ -92,9 +92,9 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .emojimix → mixer emojis
 │ ⬡ .igs → story instagram
 │ ⬡ .igsc → commentaires IG
-╰──────────────────🥷
+╰────────────────🥷
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗔𝗜 & 𝗚𝗔𝗠𝗘𝗦-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .gpt → ChatGPT
 │ ⬡ .gemini → IA Gemini
@@ -106,9 +106,9 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .trivia → quiz culture
 │ ⬡ .truth → vérité
 │ ⬡ .dare → action
-╰──────────────────🥷
+╰────────────────🥷
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .play → jouer musique
 │ ⬡ .song → télécharger musique
@@ -118,9 +118,9 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .instagram → télécharger IG
 │ ⬡ .facebook → télécharger FB
 │ ⬡ .tiktok → télécharger TikTok
-╰──────────────────🥷
+╰────────────────🥷
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗧𝗘𝗫𝗧𝗠𝗔𝗞𝗘𝗥-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .neon → texte néon
 │ ⬡ .glitch → texte glitch
@@ -131,16 +131,16 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .hacker → style hacker
 │ ⬡ .devil → style démon
 │ ⬡ .sand → texte sable
-╰──────────────────🥷
+╰────────────────🥷
 
-🥷──────────────────🥷
+🥷────────────────🥷
 『 𝗦𝗬𝗦𝗧𝗘𝗠-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 』
 │ ⬡ .git → info git
 │ ⬡ .github → lien github
 │ ⬡ .sc → code source
 │ ⬡ .repo → dépôt bot
 │ ⬡ .script → script bot
-╰──────────────────🥷
+╰────────────────🥷
 
 🥷───────────────────🥷
         ⚡ 𝗜𝗕-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 ⚡
