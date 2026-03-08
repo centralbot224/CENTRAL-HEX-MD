@@ -15,7 +15,7 @@ async function helpCommand(sock, chatId, message) {
   𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-🥷🇬🇳🥷
 
 🤖───────────────🤖
-🥷𝐈𝐁𝐑𝐀𝐇𝐈𝐌𝐀 𝐒𝐎𝐑𝐘 𝐒𝐀𝐂𝐊𝐎🥷
+ Ibrahima sory sacko
 🤖───────────────🤖
 
 🥷────────────────🥷
@@ -142,10 +142,10 @@ async function helpCommand(sock, chatId, message) {
 │ ⬡ .script → script bot
 ╰────────────────🥷
 
-🥷───────────────────🥷
+🥷─────────────────🥷
         ⚡ 𝗜𝗕-𝗖𝗘𝗡𝗧𝗥𝗔𝗟-𝗛𝗘𝗫 ⚡
    propulsé par 𝗜𝗕𝗦𝗔𝗖𝗞𝗢™
-🥷───────────────────🥷
+🥷─────────────────🥷
 
 *Join our channel for updates:*`;
 
