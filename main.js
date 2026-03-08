@@ -146,8 +146,8 @@ const soraCommand = require('./commands/sora');
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
-global.channelLink = "YOUR CHANEL LINK";
-global.ytch = "YOUR NAME";
+global.channelLink = "https://youtube.com/@central-hex-224?si=NmC_We8jMwiq3I2o";
+global.ytch = "ib🥷";
 
 // Add this near the top of main.js with other global configurations
 const channelInfo = {
@@ -155,8 +155,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363317041132843@newsletter',
-            newsletterName: 'CENTRAL-HEX',
+            newsletterJid: '20363408304719268@newsletter',
+            newsletterName: 'CENTRAL-HEX-MD',
             serverMessageId: -1
         }
     }
