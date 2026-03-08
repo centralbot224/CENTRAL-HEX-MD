@@ -259,15 +259,6 @@ async function handleMessages(sock, messageUpdate, printLog) {
             return;
         }
 
-        /*  // Basic message response in private chat
-          if (!isGroup && (userMessage === 'hi' || userMessage === 'hello' || userMessage === 'bot' || userMessage === 'hlo' || userMessage === 'hey' || userMessage === 'bro')) {
-              await sock.sendMessage(chatId, {
-                  text: 'Hi, How can I help you?\nYou can use .menu for more info and commands.',
-                  ...channelInfo
-              });
-              return;
-          } */
-
         if (!message.key.fromMe) incrementMessageCount(chatId, senderId);
 
         // Check for bad words and antilink FIRST, before ANY other processing
@@ -297,7 +288,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         // Then check for command prefix
         if (!userMessage.startsWith('.')) {
             // Show typing indicator if autotyping is enabled
-            await handleAutotypingForMessage(sock, chatId, userMessage);
+            // await handleAutotypingForMessage(sock, chatId, userMessage);
 
             if (isGroup) {
                 // Always run moderation features (antitag) regardless of mode
@@ -830,9 +821,6 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 const autoStatusArgs = userMessage.split(' ').slice(1);
                 await autoStatusCommand(sock, chatId, message, autoStatusArgs);
                 break;
-            case userMessage.startsWith('.simp'):
-                await simpCommand(sock, chatId, message);
-                break;
             case userMessage.startsWith('.metallic'):
                 await textmakerCommand(sock, chatId, message, userMessage, 'metallic');
                 break;
@@ -971,10 +959,11 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage.startsWith('.imagine') || userMessage.startsWith('.flux') || userMessage.startsWith('.dalle'): await imagineCommand(sock, chatId, message);
                 break;
-            case userMessage === '.jid': await groupJidCommand(sock, chatId, message);
+            case userMessage === '.jid': 
+                await groupJidCommand(sock, chatId, message);
                 break;
             case userMessage.startsWith('.autotyping'):
-                await autotypingCommand(sock, chatId, message);
+                // await autotypingCommand(sock, chatId, message);
                 commandExecuted = true;
                 break;
             case userMessage.startsWith('.autoread'):
@@ -1178,24 +1167,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         // If a command was executed, show typing status after command execution
         if (commandExecuted !== false) {
             // Command was executed, now show typing status after command execution
-            await showTypingAfterCommand(sock, chatId);
-        }
-
-        // Function to handle .groupjid command
-        async function groupJidCommand(sock, chatId, message) {
-            const groupJid = message.key.remoteJid;
-
-            if (!groupJid.endsWith('@g.us')) {
-                return await sock.sendMessage(chatId, {
-                    text: "❌ This command can only be used in a group."
-                });
-            }
-
-            await sock.sendMessage(chatId, {
-                text: `✅ Group JID: ${groupJid}`
-            }, {
-                quoted: message
-            });
+            // await showTypingAfterCommand(sock, chatId);
         }
 
         if (userMessage.startsWith('.')) {
@@ -1203,20 +1175,44 @@ async function handleMessages(sock, messageUpdate, printLog) {
             await addCommandReaction(sock, message);
         }
     } catch (error) {
-    console.error('X Error in message handler:', error.message);
-    
-    // Récupérer chatId depuis message si disponible
-    const errorChatId = message?.key?.remoteJid;
-    
-    // Only try to send error message if we have a valid chatId
-    if (errorChatId) {
-        await sock.sendMessage(errorChatId, {
-            text: '❌ Failed to process command!\n' + error.message.substring(0, 100),
-            ...channelInfo
-        }).catch(e => console.error('Failed to send error message:', e));
-    }
-    }
+        console.error('X Error in message handler:', error.message);
 
+        // Récupérer chatId depuis message si disponible
+        const errorChatId = message?.key?.remoteJid;
+
+        // Only try to send error message if we have a valid chatId
+        if (errorChatId) {
+            await sock.sendMessage(errorChatId, {
+                text: '❌ Failed to process command!\n' + error.message.substring(0, 100),
+                ...channelInfo
+            }).catch(e => console.error('Failed to send error message:', e));
+        }
+    }
+}
+
+// ✅ Fonction pour obtenir le JID du groupe (placée APRÈS handleMessages)
+async function groupJidCommand(sock, chatId, message) {
+    try {
+        const groupJid = message.key.remoteJid;
+
+        if (!groupJid.endsWith('@g.us')) {
+            return await sock.sendMessage(chatId, {
+                text: "❌ This command can only be used in a group.",
+                ...channelInfo
+            }, { quoted: message });
+        }
+
+        await sock.sendMessage(chatId, {
+            text: `✅ Group JID: ${groupJid}`
+        }, {
+            quoted: message
+        });
+    } catch (error) {
+        console.error('Error in groupJidCommand:', error);
+    }
+}
+
+// ✅ Fonction pour gérer les mises à jour des participants
 async function handleGroupParticipantUpdate(sock, update) {
     try {
         const { id, participants, action, author } = update;
@@ -1261,7 +1257,7 @@ async function handleGroupParticipantUpdate(sock, update) {
     }
 }
 
-// Instead, export the handlers along with handleMessages
+// ✅ Export des fonctions
 module.exports = {
     handleMessages,
     handleGroupParticipantUpdate,
