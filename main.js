@@ -147,7 +147,7 @@ const soraCommand = require('./commands/sora');
 global.packname = settings.packname;
 global.author = settings.author;
 global.channelLink = "https://youtube.com/@central-hex-224?si=NmC_We8jMwiq3I2o";
-global.ytch = "ib🥷";
+global.ytch = "https://youtube.com/@central-hex-224?si=NmC_We8jMwiq3I2o";
 
 // Add this near the top of main.js with other global configurations
 const channelInfo = {
