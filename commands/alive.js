@@ -18,8 +18,8 @@ async function aliveCommand(sock, chatId, message) {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363317041132843@newsletter',
-                    newsletterName: 'CENTRAL-HEX',
+                    newsletterJid: '20363408304719268@newsletter',
+                    newsletterName: 'CENTRAL-HEX-MD',
                     serverMessageId: -1
                 }
             }
