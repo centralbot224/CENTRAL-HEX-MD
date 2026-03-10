@@ -283,9 +283,9 @@ async function startXeonBotInc() {
             console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'CENTRAL-HEX-MD'} ]`)}\n\n`))
             console.log(chalk.cyan(`< ================================================== >`))
             console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL:Central Hex`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: Weedtech333`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: CentralHexMd`))
             console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: DevWeed`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: Central-Hex`))
             console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
             console.log(chalk.blue(`Bot Version: ${settings.version}`))
         }
