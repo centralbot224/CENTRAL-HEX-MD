@@ -6,9 +6,9 @@ async function helpCommand(sock, chatId, message) {
     const helpMessage = `
 ╭━〔 *${settings.botName || '𝐂𝐄𝐍𝐓𝐑𝐀𝐋-𝐇𝐄𝐗-𝐌𝐃'}* 〕━━━╮
 ┃ 🛠️ Version: *${settings.version || '3.0.0'}*
-┃ 👤 Owner: *${settings.botOwner || '𝐈𝐁𝐒𝐀𝐂𝐊𝐎🥷'}*
-┃ 📺 YT: ${global.ytch}
-╰━━━━━━━━━━━━━━━━━━━╯
+┃ 👤 Owner: *${settings.botOwner || '𝐈𝐁🥷'}*
+┃ 🔗 YT: ${global.ytch}
+╰━━━━━━━━━━━━━━━━━━╯
 
    *COMMAND LIST:*
 
